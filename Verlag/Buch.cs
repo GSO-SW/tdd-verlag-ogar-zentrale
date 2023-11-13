@@ -1,6 +1,6 @@
 ﻿namespace Verlag;
 
-public sealed class Buch
+public record Buch
 {
     private string autor = null!;
     private int auflage;
