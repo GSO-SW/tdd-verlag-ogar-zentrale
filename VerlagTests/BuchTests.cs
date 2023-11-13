@@ -12,7 +12,8 @@ namespace VerlagTests
 		{
 			//Arrange
 			string autor = "J.K. Rowling";
-			string titel = "Harry Potter und der Gefangene von Askaban";
+			string titel = "Harry " +
+				"Potter und der Gefangene von Askaban";
 			int auflage = 1;
 
 			//Act 
