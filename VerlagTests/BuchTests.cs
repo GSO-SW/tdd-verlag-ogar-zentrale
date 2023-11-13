@@ -69,7 +69,46 @@ namespace VerlagTests
 
 		}
 
-		[TestMethod]
+        //[TestMethod]
+        //public void Buch_ISBNWirdPruefsummeWirdBerechnet()
+        //{
+        //    //Arrange
+        //    string autor = "J.K. Rowling";
+        //    string titel = "Harry " +
+        //        "Potter und der Gefangene von Askaban";
+        //    int auflage = 1;
+        //    long ISBN13 = 978377043614;
+        //    long ISBN13MitPruefsumme = 9783770436149;
+
+        //    //Act 
+        //    Buch b = new Buch(autor, titel, auflage, ISBN13);
+
+        //    //Assert
+        //    Assert.AreEqual(ISBN13MitPruefsumme, b.ISBN13);
+        //}
+
+        //      [TestMethod]
+        //      public void Buch_ISBN13ZuISBN10()
+        //      {
+        //          //Arrange
+        //          string autor = "J.K. Rowling";
+        //          string titel = "Harry " +
+        //              "Potter und der Gefangene von Askaban";
+        //          int auflage = 1;
+        //          long ISBN13 = 9783770436064;
+        //          long ISBN10 = 3770436067;
+
+        //          //Act 
+        //          Buch b = new Buch(autor, titel, auflage, ISBN13);
+
+        //          //Assert
+        //          Assert.AreEqual(autor, b.Autor);
+        //          Assert.AreEqual(titel, b.Titel);
+        //          Assert.AreEqual(auflage, b.Auflage);
+        //          Assert.AreEqual(ISBN10, b.ISBN1);
+        //      }
+
+        [TestMethod]
 		[ExpectedException(typeof(ArgumentOutOfRangeException))]
 		public void Buch_AuflageDarfNichtZuKleinSein()
 		{
