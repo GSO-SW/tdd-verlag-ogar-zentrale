@@ -12,14 +12,18 @@ namespace Verlag
         public Buch(string autor, string titel, int auflage)
         {
             this.autor = autor;
+
             this.titel = titel;
+
             if (auflage > 0)
                 this.auflage = auflage;
             else throw new ArgumentOutOfRangeException("auflage zu klein", nameof (auflage));
         }
         public Buch(string autor, string titel)
         {
-            this.autor = autor;
+            if (autor is null or "" || autor.Any(c => "#;§%".Contains(c)))  
+                throw new ArgumentException("Autorname ungültig", nameof(autor));
+            else this.autor = autor;
             this.titel = titel;
             auflage = 1;
         }
@@ -28,7 +32,7 @@ namespace Verlag
         public string Titel { get { return titel; } }
         public int Auflage { get { return auflage; } 
             set { 
-                if (auflage > 0)
+                if (value > 0)
                 auflage = value; 
                 else throw new ArgumentOutOfRangeException("auflage zu klein", nameof (auflage));
             }
