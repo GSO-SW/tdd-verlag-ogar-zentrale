@@ -133,7 +133,7 @@ namespace VerlagTests
         //}
 
         //[TestMethod]
-        //public void Buch_ISBN13WirdPruefsummeWirdBerechnet()
+        //public void ISBN13_PruefsummeWirdBerechnet()
         //{
         //    //Arrange
         //    string autor = "J.K. Rowling";
@@ -151,62 +151,62 @@ namespace VerlagTests
         //}
 
         //[TestMethod]
-        //public void Buch_ISBN13KannGesetztWerden()
+        //public void ISBN13_KannGesetztWerden()
         //{
-        //	//Arrange
-        //	string autor = "J.K. Rowling";
-        //	string titel = "Harry " +
-        //		"Potter und der Gefangene von Askaban";
-        //	int auflage = 1;
-        //	long ISBN13 = 9783770436149;
+        //    //Arrange
+        //    string autor = "J.K. Rowling";
+        //    string titel = "Harry " +
+        //        "Potter und der Gefangene von Askaban";
+        //    int auflage = 1;
+        //    long ISBN13 = 9783770436149;
 
-        //	//Act 
-        //	Buch b = new Buch(autor, titel, auflage);
-        //	b.ISBN13 = ISBN13;
+        //    //Act 
+        //    Buch b = new Buch(autor, titel, auflage);
+        //    b.ISBN13 = ISBN13;
 
-        //	//Assert
-        //	Assert.AreEqual(ISBN13, b.ISBN13);
+        //    //Assert
+        //    Assert.AreEqual(ISBN13, b.ISBN13);
         //}
 
-        //      [TestMethod]
-        //      public void Buch_ISBN13KannGesetztWerdenUndPruefsummeBerechnet()
-        //      {
-        //          //Arrange
-        //          string autor = "J.K. Rowling";
-        //          string titel = "Harry " +
-        //              "Potter und der Gefangene von Askaban";
-        //          int auflage = 1;
-        //          long ISBN13 = 978377043614;
-        //          long ISBN13MitPruefsumme = 9783770436149;
+        //[TestMethod]
+        //public void ISBN13_KannGesetztWerdenUndPruefsummeBerechnet()
+        //{
+        //    //Arrange
+        //    string autor = "J.K. Rowling";
+        //    string titel = "Harry " +
+        //        "Potter und der Gefangene von Askaban";
+        //    int auflage = 1;
+        //    long ISBN13 = 978377043614;
+        //    long ISBN13MitPruefsumme = 9783770436149;
 
-        //          //Act 
-        //          Buch b = new Buch(autor, titel, auflage);
-        //          b.ISBN13 = ISBN13;
+        //    //Act 
+        //    Buch b = new Buch(autor, titel, auflage);
+        //    b.ISBN13 = ISBN13;
 
-        //          //Assert
-        //          Assert.AreEqual(ISBN13MitPruefsumme, b.ISBN13);
-        //      }
-
-        //      [TestMethod]
-        //      public void Buch_ISBN13ZuISBN10()
-        //      {
-        //          //Arrange
-        //          string autor = "J.K. Rowling";
-        //          string titel = "Harry " +
-        //              "Potter und der Gefangene von Askaban";
-        //          int auflage = 1;
-        //          long ISBN13 = 9783770436064;
-        //          long ISBN10 = 3770436067;
-
-        //          //Act 
-        //          Buch b = new Buch(autor, titel, auflage, ISBN13);
-
-        //          //Assert
-        //          Assert.AreEqual(ISBN10, b.ISBN10);
-        //      }
+        //    //Assert
+        //    Assert.AreEqual(ISBN13MitPruefsumme, b.ISBN13);
+        //}
 
         //[TestMethod]
-        //public void Buch_ISBN13OhnePruefsummeZuZuISBN10()
+        //public void ISBN13_ZuISBN10()
+        //{
+        //    //Arrange
+        //    string autor = "J.K. Rowling";
+        //    string titel = "Harry " +
+        //        "Potter und der Gefangene von Askaban";
+        //    int auflage = 1;
+        //    long ISBN13 = 9783770436064;
+        //    long ISBN10 = 3770436067;
+
+        //    //Act 
+        //    Buch b = new Buch(autor, titel, auflage, ISBN13);
+
+        //    //Assert
+        //    Assert.AreEqual(ISBN10, b.ISBN10);
+        //}
+
+        //[TestMethod]
+        //public void ISBN13_OhnePruefsummeZuZuISBN10()
         //{
         //    //Arrange
         //    string autor = "J.K. Rowling";
@@ -271,7 +271,7 @@ namespace VerlagTests
 
         //[TestMethod]
         //[ExpectedException(typeof(ArgumentOutOfRangeException))]
-        //public void Buch_ZuKurzeISBN13KannNichtGesetztWerden()
+        //public void ISBN13_KannNichtGesetztWerdenWennZuKurz()
         //{
         //    //Arrange
         //    string autor = "J.K. Rowling";
@@ -287,7 +287,7 @@ namespace VerlagTests
 
         //[TestMethod]
         //[ExpectedException(typeof(ArgumentOutOfRangeException))]
-        //public void Buch_ZuLangeISBN13KannNichtGesetztWerden()
+        //public void ISBN13_KannNichtGesetztWerdenWennZuLang()
         //{
         //    //Arrange
         //    string autor = "J.K. Rowling";
@@ -303,7 +303,7 @@ namespace VerlagTests
 
         //[TestMethod]
         //[ExpectedException(typeof(ArgumentOutOfRangeException))]
-        //public void Buch_FalscheISBN13KannNichtGesetztWerden()
+        //public void ISBN13_KannNichtGesetztWerdenWennZuFalsch()
         //{
         //    //Arrange
         //    string autor = "J.K. Rowling";
