@@ -14,6 +14,7 @@ namespace Verlag
         private long isbn13;
         private List<string> unerlaubteZeichen = new List<string> { "", "§", "#", ";", "%", null };
 
+
         public Buch(string autor, string titel)
         {
 
@@ -36,6 +37,12 @@ namespace Verlag
 
             this.auflage = auflage;
         }
+
+        public Buch(string autor, string titel, int auflage, long isbn13) : this(autor, titel, auflage)
+        {
+            ISBN13_Ueberpruefen(isbn13);
+        }
+
 
         public string Autor
         {
@@ -62,6 +69,25 @@ namespace Verlag
         public long ISBN13
         {
             get { return isbn13; }
+            set { ISBN13_Ueberpruefen(value); }
+        }
+        
+
+        private void ISBN13_Ueberpruefen(long isbn13)
+        {
+            if (isbn13.ToString().Length < 12 || isbn13.ToString().Length > 13)
+            {
+                //Die ISBN darf nicht zu kurz, oder zu lang sein.
+                throw new ArgumentOutOfRangeException(nameof (isbn13));
+            }
+            else if (isbn13.ToString().Length == 12)
+            {
+                //Pruefsumme Wird Berechnet
+            }
+            else
+            {
+                this.isbn13 = isbn13;
+            }
         }
     }
 }
