@@ -110,7 +110,25 @@ namespace VerlagTests
 
 
 
+        //[TestMethod]
+        //public void Buch_KannErstelltWerdenMitISBN()
+        //{
+        //    //Arrange
+        //    string autor = "J.K. Rowling";
+        //    string titel = "Harry " +
+        //        "Potter und der Gefangene von Askaban";
+        //    int auflage = 1;
+        //    string ISBN = "978-3-431-07055-2";
 
+        //    //Act
+        //    Buch b = new Buch(autor, titel, auflage, ISBN);
+
+        //    //Assert
+        //    Assert.AreEqual(autor, b.Autor);
+        //    Assert.AreEqual(titel, b.Titel);
+        //    Assert.AreEqual(auflage, b.Auflage);
+        //    Assert.AreEqual(ISBN, b.ISBN);
+        //}
 
         [TestMethod]
         public void Buch_KannErstelltWerdenMitISBN13()
@@ -149,6 +167,24 @@ namespace VerlagTests
             //Assert
             Assert.AreEqual(ISBN13, b.ISBN13);
         }
+
+        //[TestMethod]
+        //public void ISBN_KannGesetztWerden()
+        //{
+        //    //Arrange
+        //    string autor = "J.K. Rowling";
+        //    string titel = "Harry " +
+        //        "Potter und der Gefangene von Askaban";
+        //    int auflage = 1;
+        //    string ISBN = "978-3-431-07055-2";
+
+        //    //Act 
+        //    Buch b = new Buch(autor, titel, auflage);
+        //    b.ISBN = ISBN;
+
+        //    //Assert
+        //    Assert.AreEqual(ISBN, b.ISBN);
+        //}
 
         //[TestMethod]
         //public void ISBN13_PruefsummeWirdBerechnet()
