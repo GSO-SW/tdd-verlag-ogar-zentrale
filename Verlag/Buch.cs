@@ -32,10 +32,15 @@ public record Buch
         }
     }
 
-    public Buch(string autor, string titel, int auflage = 1)
+    public ISBN13 ISBN13 { get; }
+
+    public Buch(string autor, string titel, ISBN13 isbn13, int auflage = 1)
     {
         Autor = autor;
         Titel = titel;
+        ISBN13 = isbn13;
         Auflage = auflage;
     }
+
+    public Buch(string autor, string titel, int auflage = 1) : this(autor, titel, ISBN13.Empty, auflage) { }
 }
