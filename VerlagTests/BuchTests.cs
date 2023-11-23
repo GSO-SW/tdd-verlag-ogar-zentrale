@@ -108,8 +108,6 @@ namespace VerlagTests
         }
 
 
-
-
         [TestMethod]
         public void Buch_KannErstelltWerdenMitISBN()
         {
@@ -223,41 +221,41 @@ namespace VerlagTests
             Assert.AreEqual(ISBN13MitPruefsumme, b.ISBN13);
         }
 
-        //[TestMethod]
-        //public void ISBN13_ZuISBN10()
-        //{
-        //    //Arrange
-        //    string autor = "J.K. Rowling";
-        //    string titel = "Harry " +
-        //        "Potter und der Gefangene von Askaban";
-        //    int auflage = 1;
-        //    long ISBN13 = 9783770436064;
-        //    string ISBN10 = "3770436067";
+        [TestMethod]
+        public void ISBN13_ZuISBN10()
+        {
+            //Arrange
+            string autor = "J.K. Rowling";
+            string titel = "Harry " +
+                "Potter und der Gefangene von Askaban";
+            int auflage = 1;
+            long ISBN13 = 9783770436064;
+            string ISBN10 = "3770436067";
 
-        //    //Act 
-        //    Buch b = new Buch(autor, titel, auflage, ISBN13);
+            //Act 
+            Buch b = new Buch(autor, titel, auflage, ISBN13);
 
-        //    //Assert
-        //    Assert.AreEqual(ISBN10, b.ISBN10);
-        //}
+            //Assert
+            Assert.AreEqual(ISBN10, b.ISBN10);
+        }
 
-        //[TestMethod]
-        //public void ISBN13_OhnePruefsummeZuZuISBN10()
-        //{
-        //    //Arrange
-        //    string autor = "J.K. Rowling";
-        //    string titel = "Harry " +
-        //        "Potter und der Gefangene von Askaban";
-        //    int auflage = 1;
-        //    long ISBN13 = 978377043606;
-        //    string ISBN10 = "3770436067";
+        [TestMethod]
+        public void ISBN13_OhnePruefsummeZuZuISBN10()
+        {
+            //Arrange
+            string autor = "J.K. Rowling";
+            string titel = "Harry " +
+                "Potter und der Gefangene von Askaban";
+            int auflage = 1;
+            long ISBN13 = 978377043606;
+            string ISBN10 = "3770436067";
 
-        //    //Act 
-        //    Buch b = new Buch(autor, titel, auflage, ISBN13);
+            //Act 
+            Buch b = new Buch(autor, titel, auflage, ISBN13);
 
-        //    //Assert
-        //    Assert.AreEqual(ISBN10, b.ISBN10);
-        //}
+            //Assert
+            Assert.AreEqual(ISBN10, b.ISBN10);
+        }
 
 
         [TestMethod]
