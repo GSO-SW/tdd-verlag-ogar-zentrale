@@ -195,24 +195,24 @@ namespace VerlagTests
             Assert.AreEqual(ISBN13MitPruefsumme, b.ISBN);
         }
 
-        //[TestMethod]
-        //public void ISBN13_KannGesetztWerdenUndPruefsummeBerechnet()
-        //{
-        //    //Arrange
-        //    string autor = "J.K. Rowling";
-        //    string titel = "Harry " +
-        //        "Potter und der Gefangene von Askaban";
-        //    int auflage = 1;
-        //    long ISBN13 = 978377043614;
-        //    long ISBN13MitPruefsumme = 9783770436149;
+        [TestMethod]
+        public void ISBN13_KannGesetztWerdenUndPruefsummeBerechnet()
+        {
+            //Arrange
+            string autor = "J.K. Rowling";
+            string titel = "Harry " +
+                "Potter und der Gefangene von Askaban";
+            int auflage = 1;
+            string ISBN13 = "978377043614";
+            string ISBN13MitPruefsumme = "783770436149";
 
-        //    //Act 
-        //    Buch b = new Buch(autor, titel, auflage);
-        //    b.ISBN13 = ISBN13;
+            //Act 
+            Buch b = new Buch(autor, titel, auflage);
+            b.ISBN = ISBN13;
 
-        //    //Assert
-        //    Assert.AreEqual(ISBN13MitPruefsumme, b.ISBN13);
-        //}
+            //Assert
+            Assert.AreEqual(ISBN13MitPruefsumme, b.ISBN);
+        }
 
         //[TestMethod]
         //public void ISBN13_ZuISBN10()
