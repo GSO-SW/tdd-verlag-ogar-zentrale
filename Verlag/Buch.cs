@@ -9,7 +9,6 @@ namespace Verlag
         private string titel;
         private int auflage;
         private string iSBN;
-        private long iSBN13;
 
         public Buch(string autor, string titel)
         {
@@ -29,21 +28,27 @@ namespace Verlag
         }
         public Buch(string autor, string titel, int auflage, string ISBN) :this(autor, titel, auflage)
         {
-            this.iSBN = ISBN;
-        }
-        public Buch(string autor, string titel, int auflage, long ISBN13) :this(autor, titel, auflage)
-        {
-            if (Convert.ToString(ISBN13).Length == 13)
-                this.iSBN13 = ISBN13;
-            else
+            if (ISBN.Length == 17 && ISBN.Count(c => c == '-') == 4)
+                this.iSBN = new string(ISBN.Where(c => c != '-').ToArray());
+
+            else if (ISBN.Length == 13)
+                this.iSBN = ISBN;
+
+            else if (ISBN.Length == 12)
             {
-                int summe = 0;
-                for (int i = 1; i < 13; i += 2)
+                if (ISBN.Contains("-"))
+                    ISBN = new string(ISBN.Where(c => c != '-').ToArray());
+                int pruefsumme = 0;
+                for (int i = 0; i <= 11; i += 2)
                 {
-                    summe += 3 * Convert.ToInt32(Convert.ToString(ISBN13)[i]);
+                    pruefsumme += Convert.ToInt32(ISBN[i]) + Convert.ToInt32(ISBN[i + 1] * 3);
                 }
+                ISBN += ((pruefsumme % 11 - 10) * -1).ToString();
+                this.iSBN = ISBN;
             }
-        }
+            else throw new ArgumentOutOfRangeException("Prüfsummenfehler", nameof(ISBN));
+
+        }   
 
 
 
@@ -57,7 +62,6 @@ namespace Verlag
             }
         }
         public string ISBN { get { return iSBN; } set { iSBN = value; } }
-        public long ISBN13 { get { return iSBN13; } set { iSBN13 = value; } }
 
     }
 }
