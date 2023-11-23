@@ -12,6 +12,8 @@ namespace Verlag
         private string titel;
         private int auflage;
         private long isbn13;
+        private string isbn;
+        string isbn10;
         private List<string> unerlaubteZeichen = new List<string> { "", "§", "#", ";", "%", null };
 
 
@@ -43,6 +45,11 @@ namespace Verlag
             ISBN13_Ueberpruefen(isbn13);
         }
 
+        public Buch(string autor, string titel, int auflage, string isbn) : this(autor, titel, auflage)
+        {
+            this.isbn = isbn;
+        }
+
 
         public string Autor
         {
@@ -71,7 +78,21 @@ namespace Verlag
             get { return isbn13; }
             set { ISBN13_Ueberpruefen(value); }
         }
-        
+
+        public string ISBN10
+        {
+            get { return isbn10; }
+        }
+
+        public string ISBN
+        {
+            get { return isbn; }
+            set
+            {
+                isbn = value;
+                ISBN13_Ueberpruefen(long.Parse(isbn.Replace("-", "")));
+            }
+        }
 
         private void ISBN13_Ueberpruefen(long isbn13)
         {
@@ -83,11 +104,67 @@ namespace Verlag
             else if (isbn13.ToString().Length == 12)
             {
                 //Pruefsumme Wird Berechnet
+                this.isbn13 = long.Parse(isbn13.ToString() + ISBN13_PruefZiffer(isbn13));
             }
             else
             {
-                this.isbn13 = isbn13;
+                if (ISBN13_PruefZiffer(long.Parse(isbn13.ToString().Substring(0,12))) == long.Parse(isbn13.ToString().Substring(12,1)))
+                {
+                    this.isbn13 = isbn13;
+                }
+                else
+                {
+                    throw new ArgumentOutOfRangeException(nameof(isbn13));
+                }
             }
+
+
+            string isbn10 = isbn13.ToString().Substring(3, 9);
+
+            this.isbn10 = isbn10 + ISBN10_PruefZiffer(isbn10);
+        }
+
+        private int ISBN13_PruefZiffer(long isbn13)
+        {
+            if (isbn13.ToString().Length == 12)
+            {
+                int sum = 0;
+
+                for (int i = 0; i < 12; i++)
+                {
+                    if (i % 2 == 0)
+                    {
+                        sum += int.Parse(isbn13.ToString().Substring(i, 1));
+                    }
+                    else
+                    {
+                        sum += 3 * int.Parse(isbn13.ToString().Substring(i, 1));
+                    }
+                }
+
+                sum = (int)(Math.Ceiling((double)sum / 10) * 10) - sum;
+
+                return sum;
+            }
+            else
+            {
+                throw new ArgumentOutOfRangeException(nameof(isbn13));
+            }
+        }
+
+        private string ISBN10_PruefZiffer(string isbn)
+        {
+            int sum = 0;
+            for (int i = 0; i < 9; i++)
+                sum += (10 - i) * Int32.Parse(isbn[i].ToString());
+            float div = sum / 11;
+            float rem = sum % 11;
+            if (rem == 0)
+                return "0";
+            else if (rem == 1)
+                return "X";
+            else
+                return (11 - rem).ToString();
         }
     }
 }

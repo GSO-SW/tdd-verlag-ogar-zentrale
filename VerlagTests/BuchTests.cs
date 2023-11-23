@@ -110,25 +110,25 @@ namespace VerlagTests
 
 
 
-        //[TestMethod]
-        //public void Buch_KannErstelltWerdenMitISBN()
-        //{
-        //    //Arrange
-        //    string autor = "J.K. Rowling";
-        //    string titel = "Harry " +
-        //        "Potter und der Gefangene von Askaban";
-        //    int auflage = 1;
-        //    string ISBN = "978-3-431-07055-2";
+        [TestMethod]
+        public void Buch_KannErstelltWerdenMitISBN()
+        {
+            //Arrange
+            string autor = "J.K. Rowling";
+            string titel = "Harry " +
+                "Potter und der Gefangene von Askaban";
+            int auflage = 1;
+            string ISBN = "978-3-431-07055-2";
 
-        //    //Act
-        //    Buch b = new Buch(autor, titel, auflage, ISBN);
+            //Act
+            Buch b = new Buch(autor, titel, auflage, ISBN);
 
-        //    //Assert
-        //    Assert.AreEqual(autor, b.Autor);
-        //    Assert.AreEqual(titel, b.Titel);
-        //    Assert.AreEqual(auflage, b.Auflage);
-        //    Assert.AreEqual(ISBN, b.ISBN);
-        //}
+            //Assert
+            Assert.AreEqual(autor, b.Autor);
+            Assert.AreEqual(titel, b.Titel);
+            Assert.AreEqual(auflage, b.Auflage);
+            Assert.AreEqual(ISBN, b.ISBN);
+        }
 
         [TestMethod]
         public void Buch_KannErstelltWerdenMitISBN13()
@@ -138,7 +138,7 @@ namespace VerlagTests
             string titel = "Harry " +
                 "Potter und der Gefangene von Askaban";
             int auflage = 1;
-            long ISBN13 = 978377043614;
+            long ISBN13 = 9783770436149;
 
             //Act
             Buch b = new Buch(autor, titel, auflage, ISBN13);
@@ -168,60 +168,60 @@ namespace VerlagTests
             Assert.AreEqual(ISBN13, b.ISBN13);
         }
 
-        //[TestMethod]
-        //public void ISBN_KannGesetztWerden()
-        //{
-        //    //Arrange
-        //    string autor = "J.K. Rowling";
-        //    string titel = "Harry " +
-        //        "Potter und der Gefangene von Askaban";
-        //    int auflage = 1;
-        //    string ISBN = "978-3-431-07055-2";
+        [TestMethod]
+        public void ISBN_KannGesetztWerden()
+        {
+            //Arrange
+            string autor = "J.K. Rowling";
+            string titel = "Harry " +
+                "Potter und der Gefangene von Askaban";
+            int auflage = 1;
+            string ISBN = "978-3-431-07055-2";
 
-        //    //Act 
-        //    Buch b = new Buch(autor, titel, auflage);
-        //    b.ISBN = ISBN;
+            //Act 
+            Buch b = new Buch(autor, titel, auflage);
+            b.ISBN = ISBN;
 
-        //    //Assert
-        //    Assert.AreEqual(ISBN, b.ISBN);
-        //}
+            //Assert
+            Assert.AreEqual(ISBN, b.ISBN);
+        }
 
-        //[TestMethod]
-        //public void ISBN13_PruefsummeWirdBerechnet()
-        //{
-        //    //Arrange
-        //    string autor = "J.K. Rowling";
-        //    string titel = "Harry " +
-        //        "Potter und der Gefangene von Askaban";
-        //    int auflage = 1;
-        //    long ISBN13 = 978377043614;
-        //    long ISBN13MitPruefsumme = 9783770436149;
+        [TestMethod]
+        public void ISBN13_PruefsummeWirdBerechnet()
+        {
+            //Arrange
+            string autor = "J.K. Rowling";
+            string titel = "Harry " +
+                "Potter und der Gefangene von Askaban";
+            int auflage = 1;
+            long ISBN13 = 978377043614;
+            long ISBN13MitPruefsumme = 9783770436149;
 
-        //    //Act 
-        //    Buch b = new Buch(autor, titel, auflage, ISBN13);
+            //Act 
+            Buch b = new Buch(autor, titel, auflage, ISBN13);
 
-        //    //Assert
-        //    Assert.AreEqual(ISBN13MitPruefsumme, b.ISBN13);
-        //}
+            //Assert
+            Assert.AreEqual(ISBN13MitPruefsumme, b.ISBN13);
+        }
 
-        //[TestMethod]
-        //public void ISBN13_KannGesetztWerdenUndPruefsummeBerechnet()
-        //{
-        //    //Arrange
-        //    string autor = "J.K. Rowling";
-        //    string titel = "Harry " +
-        //        "Potter und der Gefangene von Askaban";
-        //    int auflage = 1;
-        //    long ISBN13 = 978377043614;
-        //    long ISBN13MitPruefsumme = 9783770436149;
+        [TestMethod]
+        public void ISBN13_KannGesetztWerdenUndPruefsummeBerechnet()
+        {
+            //Arrange
+            string autor = "J.K. Rowling";
+            string titel = "Harry " +
+                "Potter und der Gefangene von Askaban";
+            int auflage = 1;
+            long ISBN13 = 978377043614;
+            long ISBN13MitPruefsumme = 9783770436149;
 
-        //    //Act 
-        //    Buch b = new Buch(autor, titel, auflage);
-        //    b.ISBN13 = ISBN13;
+            //Act 
+            Buch b = new Buch(autor, titel, auflage);
+            b.ISBN13 = ISBN13;
 
-        //    //Assert
-        //    Assert.AreEqual(ISBN13MitPruefsumme, b.ISBN13);
-        //}
+            //Assert
+            Assert.AreEqual(ISBN13MitPruefsumme, b.ISBN13);
+        }
 
         //[TestMethod]
         //public void ISBN13_ZuISBN10()
@@ -232,7 +232,7 @@ namespace VerlagTests
         //        "Potter und der Gefangene von Askaban";
         //    int auflage = 1;
         //    long ISBN13 = 9783770436064;
-        //    long ISBN10 = 3770436067;
+        //    string ISBN10 = "3770436067";
 
         //    //Act 
         //    Buch b = new Buch(autor, titel, auflage, ISBN13);
@@ -250,7 +250,7 @@ namespace VerlagTests
         //        "Potter und der Gefangene von Askaban";
         //    int auflage = 1;
         //    long ISBN13 = 978377043606;
-        //    long ISBN10 = 3770436067;
+        //    string ISBN10 = "3770436067";
 
         //    //Act 
         //    Buch b = new Buch(autor, titel, auflage, ISBN13);
@@ -290,20 +290,20 @@ namespace VerlagTests
             Buch b = new Buch(autor, titel, auflage, ISBN13);
         }
 
-        //[TestMethod]
-        //[ExpectedException(typeof(ArgumentOutOfRangeException))]
-        //public void Buch_KannNichtErstelltWerdenMitFalschenISBN13()
-        //{
-        //    //Arrange
-        //    string autor = "J.K. Rowling";
-        //    string titel = "Harry " +
-        //        "Potter und der Gefangene von Askaban";
-        //    int auflage = 1;
-        //    long ISBN13 = 978377043616;
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
+        public void Buch_KannNichtErstelltWerdenMitFalschenISBN13()
+        {
+            //Arrange
+            string autor = "J.K. Rowling";
+            string titel = "Harry " +
+                "Potter und der Gefangene von Askaban";
+            int auflage = 1;
+            long ISBN13 = 9783770436147;
 
-        //    //Act 
-        //    Buch b = new Buch(autor, titel, auflage, ISBN13);
-        //}
+            //Act 
+            Buch b = new Buch(autor, titel, auflage, ISBN13);
+        }
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentOutOfRangeException))]
@@ -337,20 +337,20 @@ namespace VerlagTests
             b.ISBN13 = ISBN13;
         }
 
-        //[TestMethod]
-        //[ExpectedException(typeof(ArgumentOutOfRangeException))]
-        //public void ISBN13_KannNichtGesetztWerdenWennFalsch()
-        //{
-        //    //Arrange
-        //    string autor = "J.K. Rowling";
-        //    string titel = "Harry " +
-        //        "Potter und der Gefangene von Askaban";
-        //    int auflage = 1;
-        //    long ISBN13 = 9783770436146;
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
+        public void ISBN13_KannNichtGesetztWerdenWennFalsch()
+        {
+            //Arrange
+            string autor = "J.K. Rowling";
+            string titel = "Harry " +
+                "Potter und der Gefangene von Askaban";
+            int auflage = 1;
+            long ISBN13 = 9783770436146;
 
-        //    //Act 
-        //    Buch b = new Buch(autor, titel, auflage);
-        //    b.ISBN13 = ISBN13;
-        //}
+            //Act 
+            Buch b = new Buch(autor, titel, auflage);
+            b.ISBN13 = ISBN13;
+        }
     }
 }
