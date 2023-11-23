@@ -42,7 +42,7 @@ namespace Verlag
 
         public Buch(string autor, string titel, int auflage, long isbn13) : this(autor, titel, auflage)
         {
-            ISBN13_Ueberpruefen(isbn13);
+            ISBN13_Berechnen(isbn13);
         }
 
         public Buch(string autor, string titel, int auflage, string isbn) : this(autor, titel, auflage)
@@ -76,7 +76,7 @@ namespace Verlag
         public long ISBN13
         {
             get { return isbn13; }
-            set { ISBN13_Ueberpruefen(value); }
+            set { ISBN13_Berechnen(value); }
         }
 
         public string ISBN10
@@ -86,15 +86,14 @@ namespace Verlag
 
         public string ISBN
         {
-            get { return isbn; }
             set
             {
                 isbn = value;
-                ISBN13_Ueberpruefen(long.Parse(isbn.Replace("-", "")));
+                ISBN13_Berechnen(long.Parse(isbn.Replace("-", "")));
             }
         }
 
-        private void ISBN13_Ueberpruefen(long isbn13)
+        private void ISBN13_Berechnen(long isbn13)
         {
             if (isbn13.ToString().Length < 12 || isbn13.ToString().Length > 13)
             {
